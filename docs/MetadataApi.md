@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**GetVersion**](MetadataApi.md#getversion) | **GET** /api/kratos/public/version | Return Running Software Version.
 [**IsAlive**](MetadataApi.md#isalive) | **GET** /api/kratos/public/health/alive | Check HTTP Server Status
 [**IsReady**](MetadataApi.md#isready) | **GET** /api/kratos/public/health/ready | Check HTTP Server and Database Status
-[**Prometheus**](MetadataApi.md#prometheus) | **GET** /api/kratos/public/metrics/prometheus | Get snapshot metrics from the service. If you&#39;re using k8s, you can then add annotations to your deployment like so:
 
 
 <a name="getversion"></a>
@@ -210,72 +209,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ory Kratos is ready to accept requests. |  -  |
 | **503** | Ory Kratos is not yet ready to accept requests. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="prometheus"></a>
-# **Prometheus**
-> void Prometheus ()
-
-Get snapshot metrics from the service. If you're using k8s, you can then add annotations to your deployment like so:
-
-``` metadata: annotations: prometheus.io/port: \"4434\" prometheus.io/path: \"/metrics/prometheus\" ```
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class PrometheusExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            var apiInstance = new MetadataApi(config);
-
-            try
-            {
-                // Get snapshot metrics from the service. If you're using k8s, you can then add annotations to your deployment like so:
-                apiInstance.Prometheus();
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling MetadataApi.Prometheus: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
