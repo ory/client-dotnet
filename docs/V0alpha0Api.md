@@ -34,10 +34,8 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure API key authorization: oryAccessToken
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure Bearer token for authorization: oryAccessToken
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new V0alpha0Api(config);
             var clientProjectPatch = new ClientProjectPatch(); // ClientProjectPatch |  (optional) 
@@ -82,7 +80,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | project |  -  |
+| **201** | project |  -  |
 | **401** | genericError |  -  |
 | **403** | genericError |  -  |
 | **404** | genericError |  -  |
@@ -114,10 +112,8 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure API key authorization: oryAccessToken
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure Bearer token for authorization: oryAccessToken
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new V0alpha0Api(config);
             var projectId = projectId_example;  // string | Project ID  The project's ID.
@@ -194,10 +190,8 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure API key authorization: oryAccessToken
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure Bearer token for authorization: oryAccessToken
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new V0alpha0Api(config);
 
@@ -270,10 +264,8 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure API key authorization: oryAccessToken
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure Bearer token for authorization: oryAccessToken
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new V0alpha0Api(config);
             var projectId = projectId_example;  // string | Project ID  The project's ID.

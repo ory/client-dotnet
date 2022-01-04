@@ -11,6 +11,7 @@ docs/ClientApiToken.md
 docs/ClientAuthenticatorAssuranceLevel.md
 docs/ClientCnameSettings.md
 docs/ClientCreateCustomHostnameBody.md
+docs/ClientCreateSubscriptionPayload.md
 docs/ClientErrorAuthenticatorAssuranceLevelNotSatisfied.md
 docs/ClientGenericError.md
 docs/ClientHealthNotReadyStatus.md
@@ -30,8 +31,7 @@ docs/ClientIsOwnerForProjectBySlug.md
 docs/ClientIsOwnerForProjectBySlugPayload.md
 docs/ClientJsonError.md
 docs/ClientNeedsPrivilegedSessionError.md
-docs/ClientNullString.md
-docs/ClientNullUUID.md
+docs/ClientNullPlan.md
 docs/ClientProject.md
 docs/ClientProjectHost.md
 docs/ClientProjectLookupSecretConfig.md
@@ -44,7 +44,6 @@ docs/ClientProjectSlug.md
 docs/ClientProjectTotpConfig.md
 docs/ClientProjectVerificationConfig.md
 docs/ClientProjectWebAuthnConfig.md
-docs/ClientProvisionProjectPayload.md
 docs/ClientRecoveryAddress.md
 docs/ClientRedirectionConfig.md
 docs/ClientRedirectionField.md
@@ -88,6 +87,7 @@ docs/ClientSubmitSelfServiceSettingsFlowWithTotpMethodBody.md
 docs/ClientSubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.md
 docs/ClientSubmitSelfServiceVerificationFlowBody.md
 docs/ClientSubmitSelfServiceVerificationFlowWithLinkMethodBody.md
+docs/ClientSubscription.md
 docs/ClientSuccessfulSelfServiceLoginWithoutBrowser.md
 docs/ClientSuccessfulSelfServiceRegistrationWithoutBrowser.md
 docs/ClientUiContainer.md
@@ -101,6 +101,7 @@ docs/ClientUiNodeScriptAttributes.md
 docs/ClientUiNodeTextAttributes.md
 docs/ClientUiText.md
 docs/ClientUpdateCustomHostnameBody.md
+docs/ClientUpdateSubscriptionPayload.md
 docs/ClientVerifiableIdentityAddress.md
 docs/ClientVersion.md
 docs/MetadataApi.md
@@ -118,6 +119,7 @@ src/Ory.Client.Test/Model/ClientApiTokenTests.cs
 src/Ory.Client.Test/Model/ClientAuthenticatorAssuranceLevelTests.cs
 src/Ory.Client.Test/Model/ClientCnameSettingsTests.cs
 src/Ory.Client.Test/Model/ClientCreateCustomHostnameBodyTests.cs
+src/Ory.Client.Test/Model/ClientCreateSubscriptionPayloadTests.cs
 src/Ory.Client.Test/Model/ClientErrorAuthenticatorAssuranceLevelNotSatisfiedTests.cs
 src/Ory.Client.Test/Model/ClientGenericErrorTests.cs
 src/Ory.Client.Test/Model/ClientHealthNotReadyStatusTests.cs
@@ -137,8 +139,7 @@ src/Ory.Client.Test/Model/ClientIsOwnerForProjectBySlugPayloadTests.cs
 src/Ory.Client.Test/Model/ClientIsOwnerForProjectBySlugTests.cs
 src/Ory.Client.Test/Model/ClientJsonErrorTests.cs
 src/Ory.Client.Test/Model/ClientNeedsPrivilegedSessionErrorTests.cs
-src/Ory.Client.Test/Model/ClientNullStringTests.cs
-src/Ory.Client.Test/Model/ClientNullUUIDTests.cs
+src/Ory.Client.Test/Model/ClientNullPlanTests.cs
 src/Ory.Client.Test/Model/ClientProjectHostTests.cs
 src/Ory.Client.Test/Model/ClientProjectLookupSecretConfigTests.cs
 src/Ory.Client.Test/Model/ClientProjectOidcConfigTests.cs
@@ -151,7 +152,6 @@ src/Ory.Client.Test/Model/ClientProjectTests.cs
 src/Ory.Client.Test/Model/ClientProjectTotpConfigTests.cs
 src/Ory.Client.Test/Model/ClientProjectVerificationConfigTests.cs
 src/Ory.Client.Test/Model/ClientProjectWebAuthnConfigTests.cs
-src/Ory.Client.Test/Model/ClientProvisionProjectPayloadTests.cs
 src/Ory.Client.Test/Model/ClientRecoveryAddressTests.cs
 src/Ory.Client.Test/Model/ClientRedirectionConfigTests.cs
 src/Ory.Client.Test/Model/ClientRedirectionFieldTests.cs
@@ -195,6 +195,7 @@ src/Ory.Client.Test/Model/ClientSubmitSelfServiceSettingsFlowWithTotpMethodBodyT
 src/Ory.Client.Test/Model/ClientSubmitSelfServiceSettingsFlowWithWebAuthnMethodBodyTests.cs
 src/Ory.Client.Test/Model/ClientSubmitSelfServiceVerificationFlowBodyTests.cs
 src/Ory.Client.Test/Model/ClientSubmitSelfServiceVerificationFlowWithLinkMethodBodyTests.cs
+src/Ory.Client.Test/Model/ClientSubscriptionTests.cs
 src/Ory.Client.Test/Model/ClientSuccessfulSelfServiceLoginWithoutBrowserTests.cs
 src/Ory.Client.Test/Model/ClientSuccessfulSelfServiceRegistrationWithoutBrowserTests.cs
 src/Ory.Client.Test/Model/ClientUiContainerTests.cs
@@ -208,6 +209,7 @@ src/Ory.Client.Test/Model/ClientUiNodeTests.cs
 src/Ory.Client.Test/Model/ClientUiNodeTextAttributesTests.cs
 src/Ory.Client.Test/Model/ClientUiTextTests.cs
 src/Ory.Client.Test/Model/ClientUpdateCustomHostnameBodyTests.cs
+src/Ory.Client.Test/Model/ClientUpdateSubscriptionPayloadTests.cs
 src/Ory.Client.Test/Model/ClientVerifiableIdentityAddressTests.cs
 src/Ory.Client.Test/Model/ClientVersionTests.cs
 src/Ory.Client.Test/Ory.Client.Test.csproj
@@ -239,6 +241,7 @@ src/Ory.Client/Model/ClientApiToken.cs
 src/Ory.Client/Model/ClientAuthenticatorAssuranceLevel.cs
 src/Ory.Client/Model/ClientCnameSettings.cs
 src/Ory.Client/Model/ClientCreateCustomHostnameBody.cs
+src/Ory.Client/Model/ClientCreateSubscriptionPayload.cs
 src/Ory.Client/Model/ClientErrorAuthenticatorAssuranceLevelNotSatisfied.cs
 src/Ory.Client/Model/ClientGenericError.cs
 src/Ory.Client/Model/ClientHealthNotReadyStatus.cs
@@ -258,8 +261,7 @@ src/Ory.Client/Model/ClientIsOwnerForProjectBySlug.cs
 src/Ory.Client/Model/ClientIsOwnerForProjectBySlugPayload.cs
 src/Ory.Client/Model/ClientJsonError.cs
 src/Ory.Client/Model/ClientNeedsPrivilegedSessionError.cs
-src/Ory.Client/Model/ClientNullString.cs
-src/Ory.Client/Model/ClientNullUUID.cs
+src/Ory.Client/Model/ClientNullPlan.cs
 src/Ory.Client/Model/ClientProject.cs
 src/Ory.Client/Model/ClientProjectHost.cs
 src/Ory.Client/Model/ClientProjectLookupSecretConfig.cs
@@ -272,7 +274,6 @@ src/Ory.Client/Model/ClientProjectSlug.cs
 src/Ory.Client/Model/ClientProjectTotpConfig.cs
 src/Ory.Client/Model/ClientProjectVerificationConfig.cs
 src/Ory.Client/Model/ClientProjectWebAuthnConfig.cs
-src/Ory.Client/Model/ClientProvisionProjectPayload.cs
 src/Ory.Client/Model/ClientRecoveryAddress.cs
 src/Ory.Client/Model/ClientRedirectionConfig.cs
 src/Ory.Client/Model/ClientRedirectionField.cs
@@ -316,6 +317,7 @@ src/Ory.Client/Model/ClientSubmitSelfServiceSettingsFlowWithTotpMethodBody.cs
 src/Ory.Client/Model/ClientSubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.cs
 src/Ory.Client/Model/ClientSubmitSelfServiceVerificationFlowBody.cs
 src/Ory.Client/Model/ClientSubmitSelfServiceVerificationFlowWithLinkMethodBody.cs
+src/Ory.Client/Model/ClientSubscription.cs
 src/Ory.Client/Model/ClientSuccessfulSelfServiceLoginWithoutBrowser.cs
 src/Ory.Client/Model/ClientSuccessfulSelfServiceRegistrationWithoutBrowser.cs
 src/Ory.Client/Model/ClientUiContainer.cs
@@ -329,6 +331,7 @@ src/Ory.Client/Model/ClientUiNodeScriptAttributes.cs
 src/Ory.Client/Model/ClientUiNodeTextAttributes.cs
 src/Ory.Client/Model/ClientUiText.cs
 src/Ory.Client/Model/ClientUpdateCustomHostnameBody.cs
+src/Ory.Client/Model/ClientUpdateSubscriptionPayload.cs
 src/Ory.Client/Model/ClientVerifiableIdentityAddress.cs
 src/Ory.Client/Model/ClientVersion.cs
 src/Ory.Client/Ory.Client.csproj
