@@ -1,11 +1,11 @@
-# Ory.Client.Model.ClientProjectTotpConfig
+# Ory.Client.Model.ClientWarning
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **bool** | Set to true to enable the TOTP authentication method. | [optional] 
-**Issuer** | **string** | The issuer is the name which will appear in the Authenticator app. | [optional] 
+**Code** | **long** |  | [optional] 
+**Message** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

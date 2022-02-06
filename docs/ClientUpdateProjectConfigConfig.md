@@ -1,13 +1,10 @@
-# Ory.Client.Model.ClientRedirectionField
+# Ory.Client.Model.ClientUpdateProjectConfigConfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Main** | **string** |  | [optional] 
-**Oidc** | **string** |  | [optional] 
-**Password** | **string** |  | [optional] 
-**Profile** | **string** |  | [optional] 
+**Identity** | **Object** | The Ory Kratos config to import | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

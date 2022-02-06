@@ -1,10 +1,10 @@
-# Ory.Client.Model.ClientProjectRecoveryConfig
+# Ory.Client.Model.ClientInvitePayload
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **bool** | Set to true to enable account recovery. | [optional] 
+**InviteeEmail** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
