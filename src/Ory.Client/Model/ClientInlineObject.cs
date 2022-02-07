@@ -27,52 +27,39 @@ using OpenAPIDateConverter = Ory.Client.Client.OpenAPIDateConverter;
 namespace Ory.Client.Model
 {
     /// <summary>
-    /// ClientSchemaPatch
+    /// ClientInlineObject
     /// </summary>
-    [DataContract(Name = "schemaPatch")]
-    public partial class ClientSchemaPatch : IEquatable<ClientSchemaPatch>, IValidatableObject
+    [DataContract(Name = "inline_object")]
+    public partial class ClientInlineObject : IEquatable<ClientInlineObject>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientSchemaPatch" /> class.
+        /// Initializes a new instance of the <see cref="ClientInlineObject" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ClientSchemaPatch()
+        protected ClientInlineObject()
         {
             this.AdditionalProperties = new Dictionary<string, object>();
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientSchemaPatch" /> class.
+        /// Initializes a new instance of the <see cref="ClientInlineObject" /> class.
         /// </summary>
-        /// <param name="data">The json schema (required).</param>
-        /// <param name="name">The user defined schema name (required).</param>
-        public ClientSchemaPatch(Object data = default(Object), string name = default(string))
+        /// <param name="projectId">Project ID  The Project ID you want to set active.  format: uuid (required).</param>
+        public ClientInlineObject(string projectId = default(string))
         {
-            // to ensure "data" is required (not null)
-            if (data == null) {
-                throw new ArgumentNullException("data is a required property for ClientSchemaPatch and cannot be null");
+            // to ensure "projectId" is required (not null)
+            if (projectId == null) {
+                throw new ArgumentNullException("projectId is a required property for ClientInlineObject and cannot be null");
             }
-            this.Data = data;
-            // to ensure "name" is required (not null)
-            if (name == null) {
-                throw new ArgumentNullException("name is a required property for ClientSchemaPatch and cannot be null");
-            }
-            this.Name = name;
+            this.ProjectId = projectId;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// The json schema
+        /// Project ID  The Project ID you want to set active.  format: uuid
         /// </summary>
-        /// <value>The json schema</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public Object Data { get; set; }
-
-        /// <summary>
-        /// The user defined schema name
-        /// </summary>
-        /// <value>The user defined schema name</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>Project ID  The Project ID you want to set active.  format: uuid</value>
+        [DataMember(Name = "project_id", IsRequired = true, EmitDefaultValue = false)]
+        public string ProjectId { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -87,9 +74,8 @@ namespace Ory.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ClientSchemaPatch {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class ClientInlineObject {\n");
+            sb.Append("  ProjectId: ").Append(ProjectId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,15 +97,15 @@ namespace Ory.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientSchemaPatch);
+            return this.Equals(input as ClientInlineObject);
         }
 
         /// <summary>
-        /// Returns true if ClientSchemaPatch instances are equal
+        /// Returns true if ClientInlineObject instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientSchemaPatch to be compared</param>
+        /// <param name="input">Instance of ClientInlineObject to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientSchemaPatch input)
+        public bool Equals(ClientInlineObject input)
         {
             if (input == null)
             {
@@ -127,14 +113,9 @@ namespace Ory.Client.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.ProjectId == input.ProjectId ||
+                    (this.ProjectId != null &&
+                    this.ProjectId.Equals(input.ProjectId))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -148,13 +129,9 @@ namespace Ory.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
+                if (this.ProjectId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ProjectId.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
