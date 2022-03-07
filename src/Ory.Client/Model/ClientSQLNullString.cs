@@ -27,36 +27,34 @@ using OpenAPIDateConverter = Ory.Client.Client.OpenAPIDateConverter;
 namespace Ory.Client.Model
 {
     /// <summary>
-    /// ClientPagination
+    /// ClientSQLNullString
     /// </summary>
-    [DataContract(Name = "pagination")]
-    public partial class ClientPagination : IEquatable<ClientPagination>, IValidatableObject
+    [DataContract(Name = "SQLNullString")]
+    public partial class ClientSQLNullString : IEquatable<ClientSQLNullString>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientPagination" /> class.
+        /// Initializes a new instance of the <see cref="ClientSQLNullString" /> class.
         /// </summary>
-        /// <param name="page">Pagination Page (default to 1).</param>
-        /// <param name="perPage">Items per Page  This is the number of items per page. (default to 250).</param>
-        public ClientPagination(long page = 1, long perPage = 250)
+        /// <param name="_string">_string.</param>
+        /// <param name="valid">valid.</param>
+        public ClientSQLNullString(string _string = default(string), bool valid = default(bool))
         {
-            this.Page = page;
-            this.PerPage = perPage;
+            this.String = _string;
+            this.Valid = valid;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Pagination Page
+        /// Gets or Sets String
         /// </summary>
-        /// <value>Pagination Page</value>
-        [DataMember(Name = "page", EmitDefaultValue = false)]
-        public long Page { get; set; }
+        [DataMember(Name = "String", EmitDefaultValue = false)]
+        public string String { get; set; }
 
         /// <summary>
-        /// Items per Page  This is the number of items per page.
+        /// Gets or Sets Valid
         /// </summary>
-        /// <value>Items per Page  This is the number of items per page.</value>
-        [DataMember(Name = "per_page", EmitDefaultValue = false)]
-        public long PerPage { get; set; }
+        [DataMember(Name = "Valid", EmitDefaultValue = true)]
+        public bool Valid { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -71,9 +69,9 @@ namespace Ory.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ClientPagination {\n");
-            sb.Append("  Page: ").Append(Page).Append("\n");
-            sb.Append("  PerPage: ").Append(PerPage).Append("\n");
+            sb.Append("class ClientSQLNullString {\n");
+            sb.Append("  String: ").Append(String).Append("\n");
+            sb.Append("  Valid: ").Append(Valid).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,15 +93,15 @@ namespace Ory.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientPagination);
+            return this.Equals(input as ClientSQLNullString);
         }
 
         /// <summary>
-        /// Returns true if ClientPagination instances are equal
+        /// Returns true if ClientSQLNullString instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientPagination to be compared</param>
+        /// <param name="input">Instance of ClientSQLNullString to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientPagination input)
+        public bool Equals(ClientSQLNullString input)
         {
             if (input == null)
             {
@@ -111,12 +109,13 @@ namespace Ory.Client.Model
             }
             return 
                 (
-                    this.Page == input.Page ||
-                    this.Page.Equals(input.Page)
+                    this.String == input.String ||
+                    (this.String != null &&
+                    this.String.Equals(input.String))
                 ) && 
                 (
-                    this.PerPage == input.PerPage ||
-                    this.PerPage.Equals(input.PerPage)
+                    this.Valid == input.Valid ||
+                    this.Valid.Equals(input.Valid)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -130,8 +129,11 @@ namespace Ory.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Page.GetHashCode();
-                hashCode = (hashCode * 59) + this.PerPage.GetHashCode();
+                if (this.String != null)
+                {
+                    hashCode = (hashCode * 59) + this.String.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Valid.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
@@ -147,24 +149,6 @@ namespace Ory.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // Page (long) minimum
-            if (this.Page < (long)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Page, must be a value greater than or equal to 1.", new [] { "Page" });
-            }
-
-            // PerPage (long) maximum
-            if (this.PerPage > (long)1000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PerPage, must be a value less than or equal to 1000.", new [] { "PerPage" });
-            }
-
-            // PerPage (long) minimum
-            if (this.PerPage < (long)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PerPage, must be a value greater than or equal to 1.", new [] { "PerPage" });
-            }
-
             yield break;
         }
     }
