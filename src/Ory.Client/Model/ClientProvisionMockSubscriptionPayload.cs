@@ -27,39 +27,50 @@ using OpenAPIDateConverter = Ory.Client.Client.OpenAPIDateConverter;
 namespace Ory.Client.Model
 {
     /// <summary>
-    /// ClientInlineResponse200
+    /// ClientProvisionMockSubscriptionPayload
     /// </summary>
-    [DataContract(Name = "inline_response_200")]
-    public partial class ClientInlineResponse200 : IEquatable<ClientInlineResponse200>, IValidatableObject
+    [DataContract(Name = "provisionMockSubscriptionPayload")]
+    public partial class ClientProvisionMockSubscriptionPayload : IEquatable<ClientProvisionMockSubscriptionPayload>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientInlineResponse200" /> class.
+        /// Initializes a new instance of the <see cref="ClientProvisionMockSubscriptionPayload" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ClientInlineResponse200()
+        protected ClientProvisionMockSubscriptionPayload()
         {
             this.AdditionalProperties = new Dictionary<string, object>();
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientInlineResponse200" /> class.
+        /// Initializes a new instance of the <see cref="ClientProvisionMockSubscriptionPayload" /> class.
         /// </summary>
-        /// <param name="status">Always \&quot;ok\&quot;. (required).</param>
-        public ClientInlineResponse200(string status = default(string))
+        /// <param name="identityId">identityId (required).</param>
+        /// <param name="planOrPrice">planOrPrice (required).</param>
+        public ClientProvisionMockSubscriptionPayload(string identityId = default(string), string planOrPrice = default(string))
         {
-            // to ensure "status" is required (not null)
-            if (status == null) {
-                throw new ArgumentNullException("status is a required property for ClientInlineResponse200 and cannot be null");
+            // to ensure "identityId" is required (not null)
+            if (identityId == null) {
+                throw new ArgumentNullException("identityId is a required property for ClientProvisionMockSubscriptionPayload and cannot be null");
             }
-            this.Status = status;
+            this.IdentityId = identityId;
+            // to ensure "planOrPrice" is required (not null)
+            if (planOrPrice == null) {
+                throw new ArgumentNullException("planOrPrice is a required property for ClientProvisionMockSubscriptionPayload and cannot be null");
+            }
+            this.PlanOrPrice = planOrPrice;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Always \&quot;ok\&quot;.
+        /// Gets or Sets IdentityId
         /// </summary>
-        /// <value>Always \&quot;ok\&quot;.</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
-        public string Status { get; set; }
+        [DataMember(Name = "identity_id", IsRequired = true, EmitDefaultValue = false)]
+        public string IdentityId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PlanOrPrice
+        /// </summary>
+        [DataMember(Name = "plan_or_price", IsRequired = true, EmitDefaultValue = false)]
+        public string PlanOrPrice { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -74,8 +85,9 @@ namespace Ory.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ClientInlineResponse200 {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class ClientProvisionMockSubscriptionPayload {\n");
+            sb.Append("  IdentityId: ").Append(IdentityId).Append("\n");
+            sb.Append("  PlanOrPrice: ").Append(PlanOrPrice).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -97,15 +109,15 @@ namespace Ory.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientInlineResponse200);
+            return this.Equals(input as ClientProvisionMockSubscriptionPayload);
         }
 
         /// <summary>
-        /// Returns true if ClientInlineResponse200 instances are equal
+        /// Returns true if ClientProvisionMockSubscriptionPayload instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientInlineResponse200 to be compared</param>
+        /// <param name="input">Instance of ClientProvisionMockSubscriptionPayload to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientInlineResponse200 input)
+        public bool Equals(ClientProvisionMockSubscriptionPayload input)
         {
             if (input == null)
             {
@@ -113,9 +125,14 @@ namespace Ory.Client.Model
             }
             return 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.IdentityId == input.IdentityId ||
+                    (this.IdentityId != null &&
+                    this.IdentityId.Equals(input.IdentityId))
+                ) && 
+                (
+                    this.PlanOrPrice == input.PlanOrPrice ||
+                    (this.PlanOrPrice != null &&
+                    this.PlanOrPrice.Equals(input.PlanOrPrice))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -129,9 +146,13 @@ namespace Ory.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Status != null)
+                if (this.IdentityId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IdentityId.GetHashCode();
+                }
+                if (this.PlanOrPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlanOrPrice.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
