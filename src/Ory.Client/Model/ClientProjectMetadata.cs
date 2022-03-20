@@ -27,10 +27,10 @@ using OpenAPIDateConverter = Ory.Client.Client.OpenAPIDateConverter;
 namespace Ory.Client.Model
 {
     /// <summary>
-    /// ClientNormalizedProject
+    /// ClientProjectMetadata
     /// </summary>
-    [DataContract(Name = "normalizedProject")]
-    public partial class ClientNormalizedProject : IEquatable<ClientNormalizedProject>, IValidatableObject
+    [DataContract(Name = "projectMetadata")]
+    public partial class ClientProjectMetadata : IEquatable<ClientProjectMetadata>, IValidatableObject
     {
         /// <summary>
         /// The state of the project.
@@ -60,53 +60,44 @@ namespace Ory.Client.Model
         /// <value>The state of the project.</value>
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = false)]
         public StateEnum State { get; set; }
-
         /// <summary>
-        /// Returns false as State should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeState()
-        {
-            return false;
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ClientNormalizedProject" /> class.
+        /// Initializes a new instance of the <see cref="ClientProjectMetadata" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ClientNormalizedProject()
+        protected ClientProjectMetadata()
         {
             this.AdditionalProperties = new Dictionary<string, object>();
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientNormalizedProject" /> class.
+        /// Initializes a new instance of the <see cref="ClientProjectMetadata" /> class.
         /// </summary>
-        /// <param name="currentRevision">currentRevision (required).</param>
+        /// <param name="createdAt">The Project&#39;s Creation Date (required).</param>
         /// <param name="hosts">hosts (required).</param>
         /// <param name="id">id (required).</param>
-        /// <param name="revisions">revisions (required).</param>
+        /// <param name="name">The project&#39;s name if set (required).</param>
+        /// <param name="state">The state of the project. (required).</param>
         /// <param name="subscriptionId">subscriptionId.</param>
-        public ClientNormalizedProject(ClientNormalizedProjectRevision currentRevision = default(ClientNormalizedProjectRevision), List<string> hosts = default(List<string>), string id = default(string), List<ClientNormalizedProjectRevision> revisions = default(List<ClientNormalizedProjectRevision>), string subscriptionId = default(string))
+        /// <param name="updatedAt">Last Time Project was Updated (required).</param>
+        public ClientProjectMetadata(DateTime createdAt = default(DateTime), List<string> hosts = default(List<string>), string id = default(string), string name = default(string), StateEnum state = default(StateEnum), string subscriptionId = default(string), DateTime updatedAt = default(DateTime))
         {
-            // to ensure "currentRevision" is required (not null)
-            if (currentRevision == null) {
-                throw new ArgumentNullException("currentRevision is a required property for ClientNormalizedProject and cannot be null");
-            }
-            this.CurrentRevision = currentRevision;
+            this.CreatedAt = createdAt;
             // to ensure "hosts" is required (not null)
             if (hosts == null) {
-                throw new ArgumentNullException("hosts is a required property for ClientNormalizedProject and cannot be null");
+                throw new ArgumentNullException("hosts is a required property for ClientProjectMetadata and cannot be null");
             }
             this.Hosts = hosts;
             // to ensure "id" is required (not null)
             if (id == null) {
-                throw new ArgumentNullException("id is a required property for ClientNormalizedProject and cannot be null");
+                throw new ArgumentNullException("id is a required property for ClientProjectMetadata and cannot be null");
             }
             this.Id = id;
-            // to ensure "revisions" is required (not null)
-            if (revisions == null) {
-                throw new ArgumentNullException("revisions is a required property for ClientNormalizedProject and cannot be null");
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for ClientProjectMetadata and cannot be null");
             }
-            this.Revisions = revisions;
+            this.Name = name;
+            this.State = state;
+            this.UpdatedAt = updatedAt;
             this.SubscriptionId = subscriptionId;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
@@ -116,21 +107,7 @@ namespace Ory.Client.Model
         /// </summary>
         /// <value>The Project&#39;s Creation Date</value>
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; private set; }
-
-        /// <summary>
-        /// Returns false as CreatedAt should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCreatedAt()
-        {
-            return false;
-        }
-        /// <summary>
-        /// Gets or Sets CurrentRevision
-        /// </summary>
-        [DataMember(Name = "current_revision", IsRequired = true, EmitDefaultValue = false)]
-        public ClientNormalizedProjectRevision CurrentRevision { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Hosts
@@ -145,16 +122,17 @@ namespace Ory.Client.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Revisions
+        /// The project&#39;s name if set
         /// </summary>
-        [DataMember(Name = "revisions", IsRequired = true, EmitDefaultValue = false)]
-        public List<ClientNormalizedProjectRevision> Revisions { get; set; }
+        /// <value>The project&#39;s name if set</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// The project&#39;s slug
         /// </summary>
         /// <value>The project&#39;s slug</value>
-        [DataMember(Name = "slug", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "slug", EmitDefaultValue = false)]
         public string Slug { get; private set; }
 
         /// <summary>
@@ -176,16 +154,8 @@ namespace Ory.Client.Model
         /// </summary>
         /// <value>Last Time Project was Updated</value>
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = false)]
-        public DateTime UpdatedAt { get; private set; }
+        public DateTime UpdatedAt { get; set; }
 
-        /// <summary>
-        /// Returns false as UpdatedAt should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUpdatedAt()
-        {
-            return false;
-        }
         /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
@@ -199,12 +169,11 @@ namespace Ory.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ClientNormalizedProject {\n");
+            sb.Append("class ClientProjectMetadata {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  CurrentRevision: ").Append(CurrentRevision).Append("\n");
             sb.Append("  Hosts: ").Append(Hosts).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Revisions: ").Append(Revisions).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Slug: ").Append(Slug).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
@@ -230,15 +199,15 @@ namespace Ory.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientNormalizedProject);
+            return this.Equals(input as ClientProjectMetadata);
         }
 
         /// <summary>
-        /// Returns true if ClientNormalizedProject instances are equal
+        /// Returns true if ClientProjectMetadata instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientNormalizedProject to be compared</param>
+        /// <param name="input">Instance of ClientProjectMetadata to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientNormalizedProject input)
+        public bool Equals(ClientProjectMetadata input)
         {
             if (input == null)
             {
@@ -249,11 +218,6 @@ namespace Ory.Client.Model
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.CurrentRevision == input.CurrentRevision ||
-                    (this.CurrentRevision != null &&
-                    this.CurrentRevision.Equals(input.CurrentRevision))
                 ) && 
                 (
                     this.Hosts == input.Hosts ||
@@ -267,10 +231,9 @@ namespace Ory.Client.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Revisions == input.Revisions ||
-                    this.Revisions != null &&
-                    input.Revisions != null &&
-                    this.Revisions.SequenceEqual(input.Revisions)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.Slug == input.Slug ||
@@ -307,10 +270,6 @@ namespace Ory.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 }
-                if (this.CurrentRevision != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentRevision.GetHashCode();
-                }
                 if (this.Hosts != null)
                 {
                     hashCode = (hashCode * 59) + this.Hosts.GetHashCode();
@@ -319,9 +278,9 @@ namespace Ory.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Revisions != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Revisions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 if (this.Slug != null)
                 {
