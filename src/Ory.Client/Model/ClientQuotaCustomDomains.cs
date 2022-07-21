@@ -27,26 +27,42 @@ using OpenAPIDateConverter = Ory.Client.Client.OpenAPIDateConverter;
 namespace Ory.Client.Model
 {
     /// <summary>
-    /// ClientAdminCreateIdentityImportCredentialsOidc
+    /// ClientQuotaCustomDomains
     /// </summary>
-    [DataContract(Name = "adminCreateIdentityImportCredentialsOidc")]
-    public partial class ClientAdminCreateIdentityImportCredentialsOidc : IEquatable<ClientAdminCreateIdentityImportCredentialsOidc>, IValidatableObject
+    [DataContract(Name = "QuotaCustomDomains")]
+    public partial class ClientQuotaCustomDomains : IEquatable<ClientQuotaCustomDomains>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClientAdminCreateIdentityImportCredentialsOidc" /> class.
+        /// Initializes a new instance of the <see cref="ClientQuotaCustomDomains" /> class.
         /// </summary>
-        /// <param name="config">config.</param>
-        public ClientAdminCreateIdentityImportCredentialsOidc(ClientAdminCreateIdentityImportCredentialsOidcConfig config = default(ClientAdminCreateIdentityImportCredentialsOidcConfig))
+        /// <param name="availableDomains">availableDomains.</param>
+        /// <param name="canUse">canUse.</param>
+        /// <param name="usedDomains">usedDomains.</param>
+        public ClientQuotaCustomDomains(long availableDomains = default(long), bool canUse = default(bool), long usedDomains = default(long))
         {
-            this.Config = config;
+            this.AvailableDomains = availableDomains;
+            this.CanUse = canUse;
+            this.UsedDomains = usedDomains;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Gets or Sets Config
+        /// Gets or Sets AvailableDomains
         /// </summary>
-        [DataMember(Name = "config", EmitDefaultValue = false)]
-        public ClientAdminCreateIdentityImportCredentialsOidcConfig Config { get; set; }
+        [DataMember(Name = "available_domains", EmitDefaultValue = false)]
+        public long AvailableDomains { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CanUse
+        /// </summary>
+        [DataMember(Name = "can_use", EmitDefaultValue = true)]
+        public bool CanUse { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UsedDomains
+        /// </summary>
+        [DataMember(Name = "used_domains", EmitDefaultValue = false)]
+        public long UsedDomains { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -61,8 +77,10 @@ namespace Ory.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ClientAdminCreateIdentityImportCredentialsOidc {\n");
-            sb.Append("  Config: ").Append(Config).Append("\n");
+            sb.Append("class ClientQuotaCustomDomains {\n");
+            sb.Append("  AvailableDomains: ").Append(AvailableDomains).Append("\n");
+            sb.Append("  CanUse: ").Append(CanUse).Append("\n");
+            sb.Append("  UsedDomains: ").Append(UsedDomains).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -84,15 +102,15 @@ namespace Ory.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ClientAdminCreateIdentityImportCredentialsOidc);
+            return this.Equals(input as ClientQuotaCustomDomains);
         }
 
         /// <summary>
-        /// Returns true if ClientAdminCreateIdentityImportCredentialsOidc instances are equal
+        /// Returns true if ClientQuotaCustomDomains instances are equal
         /// </summary>
-        /// <param name="input">Instance of ClientAdminCreateIdentityImportCredentialsOidc to be compared</param>
+        /// <param name="input">Instance of ClientQuotaCustomDomains to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ClientAdminCreateIdentityImportCredentialsOidc input)
+        public bool Equals(ClientQuotaCustomDomains input)
         {
             if (input == null)
             {
@@ -100,9 +118,16 @@ namespace Ory.Client.Model
             }
             return 
                 (
-                    this.Config == input.Config ||
-                    (this.Config != null &&
-                    this.Config.Equals(input.Config))
+                    this.AvailableDomains == input.AvailableDomains ||
+                    this.AvailableDomains.Equals(input.AvailableDomains)
+                ) && 
+                (
+                    this.CanUse == input.CanUse ||
+                    this.CanUse.Equals(input.CanUse)
+                ) && 
+                (
+                    this.UsedDomains == input.UsedDomains ||
+                    this.UsedDomains.Equals(input.UsedDomains)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -116,10 +141,9 @@ namespace Ory.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Config != null)
-                {
-                    hashCode = (hashCode * 59) + this.Config.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AvailableDomains.GetHashCode();
+                hashCode = (hashCode * 59) + this.CanUse.GetHashCode();
+                hashCode = (hashCode * 59) + this.UsedDomains.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
