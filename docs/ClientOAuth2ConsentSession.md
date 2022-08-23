@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ClientId** | **string** |  | [optional] 
 **ConsentChallenge** | **string** |  | [optional] 
 **ExcludeNotBeforeClaim** | **bool** |  | [optional] 
+**ExpiresAt** | [**ClientOAuth2ConsentSessionExpiresAt**](ClientOAuth2ConsentSessionExpiresAt.md) |  | [optional] 
 **Extra** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **Headers** | [**ClientHeaders**](ClientHeaders.md) |  | [optional] 
 **IdTokenClaims** | [**ClientIDTokenClaims**](ClientIDTokenClaims.md) |  | [optional] 

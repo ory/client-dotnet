@@ -77,6 +77,7 @@ docs/ClientOAuth2Client.md
 docs/ClientOAuth2ConsentRequest.md
 docs/ClientOAuth2ConsentRequestOpenIDConnectContext.md
 docs/ClientOAuth2ConsentSession.md
+docs/ClientOAuth2ConsentSessionExpiresAt.md
 docs/ClientOAuth2LoginRequest.md
 docs/ClientOAuth2LogoutRequest.md
 docs/ClientOAuth2TokenResponse.md
@@ -254,6 +255,7 @@ src/Ory.Client.Test/Model/ClientOAuth2ApiErrorTests.cs
 src/Ory.Client.Test/Model/ClientOAuth2ClientTests.cs
 src/Ory.Client.Test/Model/ClientOAuth2ConsentRequestOpenIDConnectContextTests.cs
 src/Ory.Client.Test/Model/ClientOAuth2ConsentRequestTests.cs
+src/Ory.Client.Test/Model/ClientOAuth2ConsentSessionExpiresAtTests.cs
 src/Ory.Client.Test/Model/ClientOAuth2ConsentSessionTests.cs
 src/Ory.Client.Test/Model/ClientOAuth2LoginRequestTests.cs
 src/Ory.Client.Test/Model/ClientOAuth2LogoutRequestTests.cs
@@ -446,6 +448,7 @@ src/Ory.Client/Model/ClientOAuth2Client.cs
 src/Ory.Client/Model/ClientOAuth2ConsentRequest.cs
 src/Ory.Client/Model/ClientOAuth2ConsentRequestOpenIDConnectContext.cs
 src/Ory.Client/Model/ClientOAuth2ConsentSession.cs
+src/Ory.Client/Model/ClientOAuth2ConsentSessionExpiresAt.cs
 src/Ory.Client/Model/ClientOAuth2LoginRequest.cs
 src/Ory.Client/Model/ClientOAuth2LogoutRequest.cs
 src/Ory.Client/Model/ClientOAuth2TokenResponse.cs
