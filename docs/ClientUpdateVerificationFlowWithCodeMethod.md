@@ -1,4 +1,4 @@
-# Ory.Client.Model.ClientUpdateVerificationFlowWithCodeMethodBody
+# Ory.Client.Model.ClientUpdateVerificationFlowWithCodeMethod
 
 ## Properties
 
