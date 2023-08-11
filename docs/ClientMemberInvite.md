@@ -1,4 +1,4 @@
-# Ory.Client.Model.ClientProjectInvite
+# Ory.Client.Model.ClientMemberInvite
 
 ## Properties
 

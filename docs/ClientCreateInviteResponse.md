@@ -1,12 +1,11 @@
-# Ory.Client.Model.ClientCreateProjectInvitesResponse
-Response to the create project invite request
+# Ory.Client.Model.ClientCreateInviteResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllInvites** | [**List&lt;ClientProjectInvite&gt;**](ClientProjectInvite.md) |  | 
-**CreatedInvites** | [**List&lt;ClientProjectInvite&gt;**](ClientProjectInvite.md) |  | 
+**AllInvites** | [**List&lt;ClientMemberInvite&gt;**](ClientMemberInvite.md) | A list of all invites for this resource | 
+**CreatedInvite** | [**ClientMemberInvite**](ClientMemberInvite.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
