@@ -1,4 +1,4 @@
-# Ory.Client.Model.ClientCORS
+# Ory.Client.Model.ClientProjectCors
 
 ## Properties
 
