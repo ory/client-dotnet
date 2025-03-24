@@ -228,6 +228,7 @@ docs/ClientUiContainer.md
 docs/ClientUiNode.md
 docs/ClientUiNodeAnchorAttributes.md
 docs/ClientUiNodeAttributes.md
+docs/ClientUiNodeDivisionAttributes.md
 docs/ClientUiNodeImageAttributes.md
 docs/ClientUiNodeInputAttributes.md
 docs/ClientUiNodeMeta.md
@@ -243,6 +244,7 @@ docs/ClientUpdateLoginFlowWithLookupSecretMethod.md
 docs/ClientUpdateLoginFlowWithOidcMethod.md
 docs/ClientUpdateLoginFlowWithPasskeyMethod.md
 docs/ClientUpdateLoginFlowWithPasswordMethod.md
+docs/ClientUpdateLoginFlowWithSamlMethod.md
 docs/ClientUpdateLoginFlowWithTotpMethod.md
 docs/ClientUpdateLoginFlowWithWebAuthnMethod.md
 docs/ClientUpdateRecoveryFlowBody.md
@@ -254,6 +256,7 @@ docs/ClientUpdateRegistrationFlowWithOidcMethod.md
 docs/ClientUpdateRegistrationFlowWithPasskeyMethod.md
 docs/ClientUpdateRegistrationFlowWithPasswordMethod.md
 docs/ClientUpdateRegistrationFlowWithProfileMethod.md
+docs/ClientUpdateRegistrationFlowWithSamlMethod.md
 docs/ClientUpdateRegistrationFlowWithWebAuthnMethod.md
 docs/ClientUpdateSettingsFlowBody.md
 docs/ClientUpdateSettingsFlowWithLookupMethod.md
@@ -261,6 +264,7 @@ docs/ClientUpdateSettingsFlowWithOidcMethod.md
 docs/ClientUpdateSettingsFlowWithPasskeyMethod.md
 docs/ClientUpdateSettingsFlowWithPasswordMethod.md
 docs/ClientUpdateSettingsFlowWithProfileMethod.md
+docs/ClientUpdateSettingsFlowWithSamlMethod.md
 docs/ClientUpdateSettingsFlowWithTotpMethod.md
 docs/ClientUpdateSettingsFlowWithWebAuthnMethod.md
 docs/ClientUpdateSubscriptionBody.md
@@ -529,6 +533,7 @@ src/Ory.Client.Test/Model/ClientTrustedOAuth2JwtGrantJsonWebKeyTests.cs
 src/Ory.Client.Test/Model/ClientUiContainerTests.cs
 src/Ory.Client.Test/Model/ClientUiNodeAnchorAttributesTests.cs
 src/Ory.Client.Test/Model/ClientUiNodeAttributesTests.cs
+src/Ory.Client.Test/Model/ClientUiNodeDivisionAttributesTests.cs
 src/Ory.Client.Test/Model/ClientUiNodeImageAttributesTests.cs
 src/Ory.Client.Test/Model/ClientUiNodeInputAttributesTests.cs
 src/Ory.Client.Test/Model/ClientUiNodeMetaTests.cs
@@ -545,6 +550,7 @@ src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithLookupSecretMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithOidcMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithPasskeyMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithPasswordMethodTests.cs
+src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithSamlMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithTotpMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateLoginFlowWithWebAuthnMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateRecoveryFlowBodyTests.cs
@@ -556,6 +562,7 @@ src/Ory.Client.Test/Model/ClientUpdateRegistrationFlowWithOidcMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateRegistrationFlowWithPasskeyMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateRegistrationFlowWithPasswordMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateRegistrationFlowWithProfileMethodTests.cs
+src/Ory.Client.Test/Model/ClientUpdateRegistrationFlowWithSamlMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateRegistrationFlowWithWebAuthnMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowBodyTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithLookupMethodTests.cs
@@ -563,6 +570,7 @@ src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithOidcMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithPasskeyMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithPasswordMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithProfileMethodTests.cs
+src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithSamlMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithTotpMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSettingsFlowWithWebAuthnMethodTests.cs
 src/Ory.Client.Test/Model/ClientUpdateSubscriptionBodyTests.cs
@@ -839,6 +847,7 @@ src/Ory.Client/Model/ClientUiContainer.cs
 src/Ory.Client/Model/ClientUiNode.cs
 src/Ory.Client/Model/ClientUiNodeAnchorAttributes.cs
 src/Ory.Client/Model/ClientUiNodeAttributes.cs
+src/Ory.Client/Model/ClientUiNodeDivisionAttributes.cs
 src/Ory.Client/Model/ClientUiNodeImageAttributes.cs
 src/Ory.Client/Model/ClientUiNodeInputAttributes.cs
 src/Ory.Client/Model/ClientUiNodeMeta.cs
@@ -854,6 +863,7 @@ src/Ory.Client/Model/ClientUpdateLoginFlowWithLookupSecretMethod.cs
 src/Ory.Client/Model/ClientUpdateLoginFlowWithOidcMethod.cs
 src/Ory.Client/Model/ClientUpdateLoginFlowWithPasskeyMethod.cs
 src/Ory.Client/Model/ClientUpdateLoginFlowWithPasswordMethod.cs
+src/Ory.Client/Model/ClientUpdateLoginFlowWithSamlMethod.cs
 src/Ory.Client/Model/ClientUpdateLoginFlowWithTotpMethod.cs
 src/Ory.Client/Model/ClientUpdateLoginFlowWithWebAuthnMethod.cs
 src/Ory.Client/Model/ClientUpdateRecoveryFlowBody.cs
@@ -865,6 +875,7 @@ src/Ory.Client/Model/ClientUpdateRegistrationFlowWithOidcMethod.cs
 src/Ory.Client/Model/ClientUpdateRegistrationFlowWithPasskeyMethod.cs
 src/Ory.Client/Model/ClientUpdateRegistrationFlowWithPasswordMethod.cs
 src/Ory.Client/Model/ClientUpdateRegistrationFlowWithProfileMethod.cs
+src/Ory.Client/Model/ClientUpdateRegistrationFlowWithSamlMethod.cs
 src/Ory.Client/Model/ClientUpdateRegistrationFlowWithWebAuthnMethod.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowBody.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowWithLookupMethod.cs
@@ -872,6 +883,7 @@ src/Ory.Client/Model/ClientUpdateSettingsFlowWithOidcMethod.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowWithPasskeyMethod.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowWithPasswordMethod.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowWithProfileMethod.cs
+src/Ory.Client/Model/ClientUpdateSettingsFlowWithSamlMethod.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowWithTotpMethod.cs
 src/Ory.Client/Model/ClientUpdateSettingsFlowWithWebAuthnMethod.cs
 src/Ory.Client/Model/ClientUpdateSubscriptionBody.cs

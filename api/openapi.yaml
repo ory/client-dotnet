@@ -37,9 +37,9 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: /ptos
+  termsOfService: /tos
   title: Ory APIs
-  version: v1.17.2
+  version: v1.19.0
 servers:
 - url: "https://{project_slug}.projects.oryapis.com/"
   variables:
@@ -8196,6 +8196,28 @@ components:
   schemas:
     AccountExperienceColors:
       properties:
+        brand-100:
+          type: string
+        brand-200:
+          type: string
+        brand-300:
+          type: string
+        brand-400:
+          type: string
+        brand-50:
+          type: string
+        brand-500:
+          type: string
+        brand-600:
+          type: string
+        brand-700:
+          type: string
+        brand-800:
+          type: string
+        brand-900:
+          type: string
+        brand-950:
+          type: string
         button-identifier-background-default:
           type: string
         button-identifier-background-hover:
@@ -8425,6 +8447,40 @@ components:
         toggle-foreground-checked:
           type: string
         toggle-foreground-default:
+          type: string
+        ui-100:
+          type: string
+        ui-200:
+          type: string
+        ui-300:
+          type: string
+        ui-400:
+          type: string
+        ui-50:
+          type: string
+        ui-500:
+          type: string
+        ui-600:
+          type: string
+        ui-700:
+          type: string
+        ui-800:
+          type: string
+        ui-900:
+          type: string
+        ui-950:
+          type: string
+        ui-black:
+          type: string
+        ui-danger:
+          type: string
+        ui-success:
+          type: string
+        ui-transparent:
+          type: string
+        ui-warning:
+          type: string
+        ui-white:
           type: string
       type: object
     AmountInCent:
@@ -9647,9 +9703,17 @@ components:
           x-go-enum-desc: |-
             link SelfServiceMessageVerificationStrategyLink
             code SelfServiceMessageVerificationStrategyCode
+        kratos_selfservice_methods_captcha_config_cf_turnstile_secret:
+          description: |-
+            Configures the Cloudflare Turnstile site secret for CAPTCHA protection
+
+            The site secret is private and will be never be shared with the client. This key is write only and the value will not be returned in response to a read request.
+
+            Reach out to your account manager to enable this feature.
+          type: string
         kratos_selfservice_methods_captcha_config_cf_turnstile_sitekey:
           description: |-
-            Configures the Turnstile site key for CAPTCHA protection
+            Configures the Cloudflare Turnstile site key for CAPTCHA protection
 
             The site key is public and will be shared with the client.
 
@@ -9734,6 +9798,12 @@ components:
           items:
             $ref: '#/components/schemas/normalizedProjectRevisionThirdPartyProvider'
           type: array
+        kratos_selfservice_methods_oidc_enable_auto_link_policy:
+          description: |-
+            Configures whether Ory Kratos allows auto-linking of OIDC credentials without a subject
+
+            This governs the "selfservice.methods.oidc.enable_auto_link_policy" setting.
+          type: boolean
         kratos_selfservice_methods_oidc_enabled:
           description: |-
             Configures whether Ory Kratos Third Party / OpenID Connect Login is enabled
@@ -11901,6 +11971,7 @@ components:
             debug: The database adapter was unable to find the element
             status_code: 404
             error_description: Object with ID 12345 does not exist
+            id: feature_not_available
             error: The requested resource could not be found
             message: message
         redirect_browser_to: redirect_browser_to
@@ -11931,6 +12002,7 @@ components:
           debug: The database adapter was unable to find the element
           status_code: 404
           error_description: Object with ID 12345 does not exist
+          id: feature_not_available
           error: The requested resource could not be found
           message: message
       properties:
@@ -12098,6 +12170,7 @@ components:
           debug: The database adapter was unable to find the element
           status_code: 404
           error_description: Object with ID 12345 does not exist
+          id: feature_not_available
           error: The requested resource could not be found
           message: message
         message: The resource could not be found
@@ -12159,6 +12232,7 @@ components:
         debug: The database adapter was unable to find the element
         status_code: 404
         error_description: Object with ID 12345 does not exist
+        id: feature_not_available
         error: The requested resource could not be found
         message: message
       properties:
@@ -12176,6 +12250,18 @@ components:
             error.
           example: Object with ID 12345 does not exist
           type: string
+        id:
+          description: |-
+            ID is a unique error ID.
+            feature_not_available ErrFeatureNotAvailable
+            quota_exceeded ErrQuotaExceeded
+          enum:
+          - feature_not_available
+          - quota_exceeded
+          type: string
+          x-go-enum-desc: |-
+            feature_not_available ErrFeatureNotAvailable
+            quota_exceeded ErrQuotaExceeded
         message:
           description: Message contains the error message.
           type: string
@@ -15272,9 +15358,17 @@ components:
           x-go-enum-desc: |-
             link SelfServiceMessageVerificationStrategyLink
             code SelfServiceMessageVerificationStrategyCode
+        kratos_selfservice_methods_captcha_config_cf_turnstile_secret:
+          description: |-
+            Configures the Cloudflare Turnstile site secret for CAPTCHA protection
+
+            The site secret is private and will be never be shared with the client. This key is write only and the value will not be returned in response to a read request.
+
+            Reach out to your account manager to enable this feature.
+          type: string
         kratos_selfservice_methods_captcha_config_cf_turnstile_sitekey:
           description: |-
-            Configures the Turnstile site key for CAPTCHA protection
+            Configures the Cloudflare Turnstile site key for CAPTCHA protection
 
             The site key is public and will be shared with the client.
 
@@ -15359,6 +15453,12 @@ components:
           items:
             $ref: '#/components/schemas/normalizedProjectRevisionThirdPartyProvider'
           type: array
+        kratos_selfservice_methods_oidc_enable_auto_link_policy:
+          description: |-
+            Configures whether Ory Kratos allows auto-linking of OIDC credentials without a subject
+
+            This governs the "selfservice.methods.oidc.enable_auto_link_policy" setting.
+          type: boolean
         kratos_selfservice_methods_oidc_enabled:
           description: |-
             Configures whether Ory Kratos Third Party / OpenID Connect Login is enabled
@@ -15702,12 +15802,6 @@ components:
       type: array
     normalizedProjectRevisionSAMLProvider:
       properties:
-        client_id:
-          description: ClientID is the application's Client ID.
-          type: string
-        client_secret:
-          nullable: true
-          type: string
         created_at:
           description: The Project's Revision Creation Date
           format: date-time
@@ -20835,6 +20929,7 @@ components:
           - identifier_first
           - captcha
           - saml
+          - oauth2_consent
           type: string
           x-go-enum-desc: |-
             default DefaultGroup
@@ -20864,12 +20959,14 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
           enum:
           - text
           - input
           - img
           - a
           - script
+          - div
           type: string
           x-go-enum-desc: |-
             text Text
@@ -20877,6 +20974,7 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
       required:
       - attributes
       - group
@@ -20905,12 +21003,14 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
           enum:
           - text
           - input
           - img
           - a
           - script
+          - div
           type: string
           x-go-enum-desc: |-
             text Text
@@ -20918,6 +21018,7 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
         title:
           $ref: '#/components/schemas/uiText'
       required:
@@ -20943,6 +21044,54 @@ components:
       - $ref: '#/components/schemas/uiNodeAnchorAttributes'
       - $ref: '#/components/schemas/uiNodeScriptAttributes'
       title: Attributes represents a list of attributes (e.g. `href="foo"` for links).
+    uiNodeDivisionAttributes:
+      description: Division sections are used for interactive widgets that require
+        a hook in the DOM / view.
+      properties:
+        class:
+          description: The script MIME type
+          type: string
+        data:
+          additionalProperties:
+            type: string
+          description: |-
+            Data is a map of key-value pairs that are passed to the division.
+
+            They may be used for `data-...` attributes.
+          type: object
+        id:
+          description: A unique identifier
+          type: string
+        node_type:
+          description: |-
+            NodeType represents this node's types. It is a mirror of `node.type` and
+            is primarily used to allow compatibility with OpenAPI 3.0. In this struct it technically always is "script".
+            text Text
+            input Input
+            img Image
+            a Anchor
+            script Script
+            div Division
+          enum:
+          - text
+          - input
+          - img
+          - a
+          - script
+          - div
+          type: string
+          x-go-enum-desc: |-
+            text Text
+            input Input
+            img Image
+            a Anchor
+            script Script
+            div Division
+      required:
+      - id
+      - node_type
+      title: DivisionAttributes represent a division section.
+      type: object
     uiNodeImageAttributes:
       properties:
         height:
@@ -20961,12 +21110,14 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
           enum:
           - text
           - input
           - img
           - a
           - script
+          - div
           type: string
           x-go-enum-desc: |-
             text Text
@@ -20974,6 +21125,7 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
         src:
           description: |-
             The image's source URL.
@@ -21059,12 +21211,14 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
           enum:
           - text
           - input
           - img
           - a
           - script
+          - div
           type: string
           x-go-enum-desc: |-
             text Text
@@ -21072,6 +21226,7 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
         onclick:
           description: |-
             OnClick may contain javascript which should be executed on click. This is primarily
@@ -21233,12 +21388,14 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
           enum:
           - text
           - input
           - img
           - a
           - script
+          - div
           type: string
           x-go-enum-desc: |-
             text Text
@@ -21246,6 +21403,7 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
         nonce:
           description: |-
             Nonce for CSP
@@ -21289,12 +21447,14 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
           enum:
           - text
           - input
           - img
           - a
           - script
+          - div
           type: string
           x-go-enum-desc: |-
             text Text
@@ -21302,6 +21462,7 @@ components:
             img Image
             a Anchor
             script Script
+            div Division
         text:
           $ref: '#/components/schemas/uiText'
       required:
@@ -21405,12 +21566,14 @@ components:
           oidc: '#/components/schemas/updateLoginFlowWithOidcMethod'
           passkey: '#/components/schemas/updateLoginFlowWithPasskeyMethod'
           password: '#/components/schemas/updateLoginFlowWithPasswordMethod'
+          saml: '#/components/schemas/updateLoginFlowWithSamlMethod'
           totp: '#/components/schemas/updateLoginFlowWithTotpMethod'
           webauthn: '#/components/schemas/updateLoginFlowWithWebAuthnMethod'
         propertyName: method
       oneOf:
       - $ref: '#/components/schemas/updateLoginFlowWithPasswordMethod'
       - $ref: '#/components/schemas/updateLoginFlowWithOidcMethod'
+      - $ref: '#/components/schemas/updateLoginFlowWithSamlMethod'
       - $ref: '#/components/schemas/updateLoginFlowWithTotpMethod'
       - $ref: '#/components/schemas/updateLoginFlowWithWebAuthnMethod'
       - $ref: '#/components/schemas/updateLoginFlowWithLookupSecretMethod'
@@ -21595,6 +21758,32 @@ components:
       - method
       - password
       type: object
+    updateLoginFlowWithSamlMethod:
+      description: Update login flow using SAML
+      properties:
+        csrf_token:
+          description: The CSRF Token
+          type: string
+        method:
+          description: |-
+            Method to use
+
+            This field must be set to `saml` when using the saml method.
+          type: string
+        provider:
+          description: The provider to register with
+          type: string
+        traits:
+          description: The identity traits. This is a placeholder for the registration
+            flow.
+          type: object
+        transient_payload:
+          description: Transient data to pass along to any webhooks
+          type: object
+      required:
+      - method
+      - provider
+      type: object
     updateLoginFlowWithTotpMethod:
       description: Update Login Flow with TOTP Method
       properties:
@@ -21747,11 +21936,13 @@ components:
           passkey: '#/components/schemas/updateRegistrationFlowWithPasskeyMethod'
           password: '#/components/schemas/updateRegistrationFlowWithPasswordMethod'
           profile: '#/components/schemas/updateRegistrationFlowWithProfileMethod'
+          saml: '#/components/schemas/updateRegistrationFlowWithSamlMethod'
           webauthn: '#/components/schemas/updateRegistrationFlowWithWebAuthnMethod'
         propertyName: method
       oneOf:
       - $ref: '#/components/schemas/updateRegistrationFlowWithPasswordMethod'
       - $ref: '#/components/schemas/updateRegistrationFlowWithOidcMethod'
+      - $ref: '#/components/schemas/updateRegistrationFlowWithSamlMethod'
       - $ref: '#/components/schemas/updateRegistrationFlowWithWebAuthnMethod'
       - $ref: '#/components/schemas/updateRegistrationFlowWithCodeMethod'
       - $ref: '#/components/schemas/updateRegistrationFlowWithPasskeyMethod'
@@ -21935,6 +22126,31 @@ components:
       - method
       - traits
       type: object
+    updateRegistrationFlowWithSamlMethod:
+      description: Update registration flow using SAML
+      properties:
+        csrf_token:
+          description: The CSRF Token
+          type: string
+        method:
+          description: |-
+            Method to use
+
+            This field must be set to `saml` when using the saml method.
+          type: string
+        provider:
+          description: The provider to register with
+          type: string
+        traits:
+          description: The identity traits
+          type: object
+        transient_payload:
+          description: Transient data to pass along to any webhooks
+          type: object
+      required:
+      - method
+      - provider
+      type: object
     updateRegistrationFlowWithWebAuthnMethod:
       description: Update Registration Flow with WebAuthn Method
       properties:
@@ -21979,6 +22195,7 @@ components:
           passkey: '#/components/schemas/updateSettingsFlowWithPasskeyMethod'
           password: '#/components/schemas/updateSettingsFlowWithPasswordMethod'
           profile: '#/components/schemas/updateSettingsFlowWithProfileMethod'
+          saml: '#/components/schemas/updateSettingsFlowWithSamlMethod'
           totp: '#/components/schemas/updateSettingsFlowWithTotpMethod'
           webauthn: '#/components/schemas/updateSettingsFlowWithWebAuthnMethod'
         propertyName: method
@@ -21986,6 +22203,7 @@ components:
       - $ref: '#/components/schemas/updateSettingsFlowWithPasswordMethod'
       - $ref: '#/components/schemas/updateSettingsFlowWithProfileMethod'
       - $ref: '#/components/schemas/updateSettingsFlowWithOidcMethod'
+      - $ref: '#/components/schemas/updateSettingsFlowWithSamlMethod'
       - $ref: '#/components/schemas/updateSettingsFlowWithTotpMethod'
       - $ref: '#/components/schemas/updateSettingsFlowWithWebAuthnMethod'
       - $ref: '#/components/schemas/updateSettingsFlowWithLookupMethod'
@@ -22152,6 +22370,51 @@ components:
       required:
       - method
       - traits
+      type: object
+    updateSettingsFlowWithSamlMethod:
+      description: Update settings flow using SAML
+      properties:
+        flow:
+          description: |-
+            Flow ID is the flow's ID.
+
+            in: query
+          type: string
+        link:
+          description: |-
+            Link this provider
+
+            Either this or `unlink` must be set.
+
+            type: string
+            in: body
+          type: string
+        method:
+          description: |-
+            Method
+
+            Should be set to saml when trying to update a profile.
+          type: string
+        traits:
+          description: |-
+            The identity's traits
+
+            in: body
+          type: object
+        transient_payload:
+          description: Transient data to pass along to any webhooks
+          type: object
+        unlink:
+          description: |-
+            Unlink this provider
+
+            Either this or `link` must be set.
+
+            type: string
+            in: body
+          type: string
+      required:
+      - method
       type: object
     updateSettingsFlowWithTotpMethod:
       description: Update Settings Flow with TOTP Method

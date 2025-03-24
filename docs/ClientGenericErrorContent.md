@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Debug** | **string** | Debug contains debug information. This is usually not available and has to be enabled. | [optional] 
 **Error** | **string** | Name is the error name. | [optional] 
 **ErrorDescription** | **string** | Description contains further information on the nature of the error. | [optional] 
+**Id** | **string** | ID is a unique error ID. feature_not_available ErrFeatureNotAvailable quota_exceeded ErrQuotaExceeded | [optional] 
 **Message** | **string** | Message contains the error message. | [optional] 
 **StatusCode** | **long** | Code represents the error status code (404, 403, 401, ...). | [optional] 
 

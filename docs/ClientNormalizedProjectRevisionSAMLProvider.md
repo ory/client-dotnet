@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **string** | ClientID is the application&#39;s Client ID. | [optional] 
-**ClientSecret** | **string** |  | [optional] 
 **CreatedAt** | **DateTime** | The Project&#39;s Revision Creation Date | [optional] [readonly] 
 **Id** | **string** |  | [optional] 
 **Label** | **string** | Label represents an optional label which can be used in the UI generation. | [optional] 

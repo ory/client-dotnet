@@ -4,6 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Brand100** | **string** |  | [optional] 
+**Brand200** | **string** |  | [optional] 
+**Brand300** | **string** |  | [optional] 
+**Brand400** | **string** |  | [optional] 
+**Brand50** | **string** |  | [optional] 
+**Brand500** | **string** |  | [optional] 
+**Brand600** | **string** |  | [optional] 
+**Brand700** | **string** |  | [optional] 
+**Brand800** | **string** |  | [optional] 
+**Brand900** | **string** |  | [optional] 
+**Brand950** | **string** |  | [optional] 
 **ButtonIdentifierBackgroundDefault** | **string** |  | [optional] 
 **ButtonIdentifierBackgroundHover** | **string** |  | [optional] 
 **ButtonIdentifierBorderBorderDefault** | **string** |  | [optional] 
@@ -119,6 +130,23 @@ Name | Type | Description | Notes
 **ToggleBorderDefault** | **string** |  | [optional] 
 **ToggleForegroundChecked** | **string** |  | [optional] 
 **ToggleForegroundDefault** | **string** |  | [optional] 
+**Ui100** | **string** |  | [optional] 
+**Ui200** | **string** |  | [optional] 
+**Ui300** | **string** |  | [optional] 
+**Ui400** | **string** |  | [optional] 
+**Ui50** | **string** |  | [optional] 
+**Ui500** | **string** |  | [optional] 
+**Ui600** | **string** |  | [optional] 
+**Ui700** | **string** |  | [optional] 
+**Ui800** | **string** |  | [optional] 
+**Ui900** | **string** |  | [optional] 
+**Ui950** | **string** |  | [optional] 
+**UiBlack** | **string** |  | [optional] 
+**UiDanger** | **string** |  | [optional] 
+**UiSuccess** | **string** |  | [optional] 
+**UiTransparent** | **string** |  | [optional] 
+**UiWarning** | **string** |  | [optional] 
+**UiWhite** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
