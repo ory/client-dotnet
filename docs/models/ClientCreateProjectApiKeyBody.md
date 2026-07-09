@@ -1,10 +1,10 @@
-# Ory.Client.Model.ClientCreateProjectApiKeyRequest
+# Ory.Client.Model.ClientCreateProjectApiKeyBody
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The Token Name  A descriptive name for the token.  in: body | 
+**Name** | **string** | The Token Name  A descriptive name for the token. | 
 **ExpiresAt** | **DateTime** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
