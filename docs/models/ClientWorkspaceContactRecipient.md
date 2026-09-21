@@ -1,11 +1,12 @@
-# Ory.Client.Model.ClientPlan
+# Ory.Client.Model.ClientWorkspaceContactRecipient
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name is the name of the plan. | 
-**VarVersion** | **long** | Version is the version of the plan. The combination of &#x60;name@version&#x60; must be unique. | 
+**Email** | **string** |  | [optional] 
+**IdentityId** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
